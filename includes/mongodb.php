@@ -7,7 +7,7 @@ $dotenv->load();
 
 use MongoDB\Client as MongoDB;
 
-$mongodb_uri = getenv('MONGO_URI');
+$mongodb_uri = $_ENV['MONGO_URI'];
 
 $client = new MongoDB($mongodb_uri);
 
