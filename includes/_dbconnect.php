@@ -18,7 +18,7 @@ if($app_env == 'production'){
   $active_group = 'default';
   $query_builder = TRUE;
   // Connect to DB
-  $conn = mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+  $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 }
 else {
   $servername = $_ENV['DB_HOST'];
