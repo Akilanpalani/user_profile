@@ -12,18 +12,36 @@ $(document).ready(function(){
           let res = JSON.parse(response)
           if(res.success){
             localStorage.setItem("sessionToken",res.token);
-            window.location.href = "userProfile.html"
+            Swal.fire({
+              title:"Good Luck",
+              text:"Successfully Logged In",
+              icon:"success"
+            }).then(()=>{
+              window.location.href = "userProfile.html"
+            });
           }
           else{
-            alert(res.message, "error")
+           Swal.fire({
+            title:"Error",
+            text:res.tostring(message),
+            icon:"error"
+           })
           }
         }
         catch(error){
-          alert("Login failed: " + error)
+          Swal.fire({
+            title:"Login Failed",
+            text:"Something Went Wrong",
+            icon:"error"
+          });
         }
       },
       error: function(jqXHR, textStatus, errorThrown){
-        alert("Login failed: " + textStatus + " " + errorThrown)
+        Swal.fire({
+          title:"Login failed",
+          text:"Something Went Wrong",
+          icon:"error"
+        })
       }
     });
   });

@@ -7,12 +7,22 @@ $(document).ready(function () {
       type: "POST",
       data: formData,
       success: function (response) {
-        alert(response);
-        window.location.href= "login.html";
+        Swal.fire({
+          tilte:"Good Luck",
+          text:"Successfull Registered",
+          icon:"success"
+        }).then(()=>{
+          window.location.href= "login.html";
+        })
       },
       error: function (jqXHR, textStatus, errorThrown) {
-        alert("Registration failed: " + textStatus + " " + errorThrown);
-        window.location.herf = "register.html";
+        Swal.fire({
+          title:"Opps..",
+          text:"Something Went wrong, Please try again",
+          icon:"failure"
+        }).then(()=>{
+          window.location.herf = "register.html";
+        })
       }
     })
   })
