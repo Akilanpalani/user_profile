@@ -1,10 +1,12 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
-$dotenv->load();
-
 $app_env = getenv('APP_ENV');
+
+if($app_env !== 'production'){
+  $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+  $dotenv->load();
+}
 
 if($app_env == 'production'){
   //Get Heroku ClearDB connection information
