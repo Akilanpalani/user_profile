@@ -19,7 +19,7 @@ $(document).ready(function () {
         Swal.fire({
           title:"Opps..",
           text:"Something Went wrong, Please try again",
-          icon:"failure"
+          icon:"error"
         }).then(()=>{
           window.location.herf = "register.html";
         })

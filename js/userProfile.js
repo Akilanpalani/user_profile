@@ -23,7 +23,7 @@ $(document).ready(function () {
         Swal.fire({
           title:"Oops..",
           text:"Something went wrong",
-          icon:"failure"
+          icon:"error"
         }).then(()=>{
           window.location.href = "login.html"
         })
@@ -33,7 +33,7 @@ $(document).ready(function () {
       Swal.fire({
         title:"Oops..",
         text:textStatus + "" + errorThrown,
-        icon:"failure"
+        icon:"error"
       }).then(()=>{
         window.location.herf = "login.html"
       })
@@ -56,7 +56,7 @@ $(document).ready(function () {
         if (res.success) {
           Swal.fire({
             title:"Great!",
-            text:res.message,
+            text:"User Profile Updated",
             icon:"success"
           })
         }
@@ -64,7 +64,7 @@ $(document).ready(function () {
           Swal.fire({
             title:"Oops...",
             text:"Something went wrong",
-            icon:"failure"
+            icon:"error"
           })
         }
       },
@@ -73,7 +73,7 @@ $(document).ready(function () {
         Swal.fire({
           title:"Oops...",
           text:textStatus + "" + errorThrown,
-          icon:"failure"
+          icon:"error"
         })
       }
     });
@@ -102,14 +102,14 @@ $(document).ready(function () {
           Swal.fire({
             title:"Oops",
             text:res.error,
-            icon:'failure'
+            icon:'error'
           })
         }
       },
       error: function (jqXHR, textStatus, errorThrown) {
         Swal.fire({
           title:"Logout Failed",
-          icon:"failure",
+          icon:"error",
           text:textStatus + "" + errorThrown
         })
       }
