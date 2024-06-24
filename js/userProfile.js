@@ -20,12 +20,23 @@ $(document).ready(function () {
       }
       else {
         // Redirect to login page if token is invalid
-        window.location.href = "login.html"
+        Swal.fire({
+          title:"Oops..",
+          text:"Something went wrong",
+          icon:"failure"
+        }).then(()=>{
+          window.location.href = "login.html"
+        })
       }
     },
     error: function (jqXHR, textStatus, errorThrown) {
-      alert("Token validation failed: " + textStatus)
-      window.location.herf = "login.html"
+      Swal.fire({
+        title:"Oops..",
+        text:textStatus + "" + errorThrown,
+        icon:"failure"
+      }).then(()=>{
+        window.location.herf = "login.html"
+      })
     }
   });
 
@@ -43,15 +54,27 @@ $(document).ready(function () {
       success: function (response) {
         let res = JSON.parse(response)
         if (res.success) {
-          alert(res.message)
+          Swal.fire({
+            title:"Great!",
+            text:res.message,
+            icon:"success"
+          })
         }
         else {
-          alert(res.message)
+          Swal.fire({
+            title:"Oops...",
+            text:"Something went wrong",
+            icon:"failure"
+          })
         }
       },
 
       error: function (jqXHR, textStatus, errorThrown) {
-        alert("Profile update failed: " + textStatus + " " + errorThrown)
+        Swal.fire({
+          title:"Oops...",
+          text:textStatus + "" + errorThrown,
+          icon:"failure"
+        })
       }
     });
   });
@@ -66,14 +89,29 @@ $(document).ready(function () {
       success: function (response) {
         let res = JSON.parse(response)
         if (res.success) {
-          window.location.href = "login.html"
+          localStorage.removeItem("sessionToken")
+          Swal.fire({
+            title:"Logout Success",
+            text:"Successfully logged out",
+            icon:"success"
+          }).then(()=>{
+            window.location.href = "login.html"
+          })
         }
         else {
-          alert(res.message)
+          Swal.fire({
+            title:"Oops",
+            text:res.error,
+            icon:'failure'
+          })
         }
       },
       error: function (jqXHR, textStatus, errorThrown) {
-        alert("Logout failed: " + textStatus + " " + errorThrown)
+        Swal.fire({
+          title:"Logout Failed",
+          icon:"failure",
+          text:textStatus + "" + errorThrown
+        })
       }
     });
   });
