@@ -18,7 +18,7 @@ if($app_env == 'production'){
   $active_group = 'default';
   $query_builder = TRUE;
   // Connect to DB
-  $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+  $conn = mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 }
 else {
   $servername = $_ENV['DB_HOST'];
@@ -32,7 +32,5 @@ else {
 if($conn->connect_error){
   die("Connection failed: ".$conn->connect_error);
 }
-else {
-  echo "Connected Successfully";
-}
+
 ?>
