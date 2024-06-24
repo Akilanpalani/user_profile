@@ -7,10 +7,10 @@ $dotenv->load();
 
 use MongoDB\Client as MongoDB;
 
-$mongodb_uri = getenv('MONGO_URI');
+$mongodb_uri = getenv('MONGODB_URI');
 
 $client = new MongoDB($mongodb_uri);
 
-$collection = $client->userProfile->user_profiles;
+$collection = $client->userProfile->userDetails;
 
 ?>
