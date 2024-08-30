@@ -1,20 +1,26 @@
-$MyColor:red;
+// use variable effectively
+$MyColor:#f2f2f2;
+$HeadlineColor:black;
 
 body{
   text-align: center;
   font-family: sans-serif;
-  // background-color: #f2f2f2;
   background-color: $MyColor;
 }
 
+// Nesting selctors
 .headline{
   text-align: center;
-  color: black;
+  color: $HeadlineColor;
+
+  @media screen and (max-width: 1080px) {  
+      font-size: 24px;
+  }
 }
 
 label{
   display: block;
-  color: #333;
+  color: $HeadlineColor;
   font-weight: bold;
   text-align: left;
 }
@@ -34,10 +40,4 @@ input[type="text"], input[type="email"], input[type="password"]{
   border: none;
   border-radius: 4px;
   cursor: pointer;
-}
-
-@media screen and (max-width: 1080px) {  
-  .headline{
-    font-size: 24px;
-  }
 }
