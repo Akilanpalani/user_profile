@@ -1,0 +1,35 @@
+$MyColor:#f2f2f2;
+$text-color:#333;
+$border-color:#ccc;
+$font-family:sans-serif;
+$headline-font-size:24px;
+$padding-base:12px;
+$border-radius:5px;
+$breakpoint-md:1080px;
+
+
+body{
+  text-align: center;
+  font-family: sans-serif;
+  background-color:$MyColor;
+}
+
+label{
+  display: block;
+  color: $text-color;
+  font-weight: bold;
+  text-align: left;
+}
+
+input[type="text"], input[type="email"], input[type="password"]{
+  width: 100%;
+  padding: $padding-base 20px;
+  border-radius: $border-radius;
+  border: 1px solid $border-color;
+}
+
+@media screen and (max-width: $breakpoint-md) {  
+  .headline{
+    font-size: $headline-font-size;
+  }
+}
